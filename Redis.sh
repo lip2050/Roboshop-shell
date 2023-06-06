@@ -12,4 +12,4 @@ sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/redis.conf /etc/redis/redis.conf &>>/tmp/r
 
 echo -e "\e[32mStart Redis Service\e[0m"
 systemctl enable redis
-systemctl start redis
+systemctl restart redis
