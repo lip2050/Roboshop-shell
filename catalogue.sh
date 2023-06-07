@@ -40,4 +40,4 @@ echo -e "${color}Install mongodb client${nocolor}"
 yum install mongodb-org-shell -y &>>$log_file
 
 echo -e "${color}Load Schema ${nocolor}"
-mongo --host mongodb-dev.lipdevopspro.site <${app_path}/schema/component.js &>>$log_file
+mongo --host mongodb-dev.lipdevopspro.site </app/schema/component.js &>>$log_file
