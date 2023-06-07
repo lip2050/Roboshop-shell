@@ -36,6 +36,7 @@ stat_check $?
 systemD_postsetup(){
     echo -e "${color}Setup SystemD Service${nocolor}"
     cp /home/centos/roboshop-shell/${component}.service /etc/systemd/system/${component}.service &>>${log_file}
+    sed -i  -e  "s/roboshop_app_password/$roboshop_app_password/" /etc/systemd/system/${component}.service &>>${log_file}
   stat_check $?
 
     echo -e "${color}Start ${component} Service ${nocolor}"
@@ -155,7 +156,7 @@ stat_check $?
 stat_check $?
 
   echo -e "${color} Add ${component} Application User${nocolor}"
-  ${component}ctl add_user roboshop roboshop123 &>>${log_file}
+  ${component}ctl add_user roboshop $1 &>>${log_file}
 stat_check $?
   ${component}ctl set_permissions -p / roboshop ".*" ".*" ".*" &>>${log_file}
 stat_check $?
@@ -231,7 +232,7 @@ stat_check $?
   enable_system
 
   echo -e "${color}Setup ${component} Password${nocolor}"
-  ${component}_secure_installation --set-root-pass RoboShop@1 &>>${log_file}
+  ${component}_secure_installation --set-root-pass $1 &>>${log_file}
 stat_check $?
 }
 
