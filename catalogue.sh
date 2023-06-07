@@ -22,7 +22,7 @@ echo -e "${color}Extract Application Content${nocolor}"
 unzip /tmp/${component}.zip &>>$log_file
 cd ${app_path}
 
-echo -e "${color} Install Nodejs Dependencies${nocolor}"
+echo -e "${color}Install Nodejs Dependencies${nocolor}"
 npm install &>>$log_file
 
 echo -e "${color}Setup SystemD Service${nocolor}"
