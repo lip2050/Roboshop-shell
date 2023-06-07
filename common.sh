@@ -84,9 +84,7 @@ nginx(){
   echo -e "${color}Update frontend Configuration ${nocolor}"
   cp /home/centos/roboshop-shell/roboshop.conf /etc/${component}/default.d/roboshop.conf
 
-  #enable_system
-  systemctl enable ${component}
-  systemctl restart ${component}
+  enable_system
 }
 
 python(){
