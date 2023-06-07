@@ -1,3 +1,4 @@
+source common.sh
 component=catalogue
 
 echo -e "${color}Configuring Nodejs Repos ${nocolor}"
